@@ -1,9 +1,12 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
 import { FaInstagramSquare } from "react-icons/fa";
+import Link from "next/link";
 const page = () => {
+  const [copied, setCopied] = useState(false);
   const socialLinksstyle =
     "w-16 h-16 bg-gray-800 border-gray-100 border-2 rounded-full flex items-center justify-center text-white text-2xl hover:bg-gray-600 transition-colors duration-300 hover:border-gray-300 cursor-pointer dark:hover:bg-gray-200 dark:hover:text-gray-800 dark:hover:border-gray-300";
   return (
@@ -23,7 +26,9 @@ const page = () => {
       </p>
       <div className="flex items-center justify-center gap-6 p-10">
         <button className="bg-blue-500 text-white px-6 py-3 rounded-md mr-4 cursor-pointer hover:scale-125 hover:bg-blue-600 transition-transform duration-300">
-          View My Work
+          <Link href="/Pages/Projects" passHref>
+            View My Work
+          </Link>
         </button>
         <button className="bg-gray-500 text-white px-6 py-3 rounded-md cursor-pointer hover:scale-125 hover:bg-gray-600 transition-transform duration-300">
           Resume
@@ -31,16 +36,26 @@ const page = () => {
       </div>
       <div className="flex items-center justify-center gap-6 ">
         <div className={socialLinksstyle}>
-          <FaLinkedin />
+          <a href="https://www.linkedin.com/in/maheshkose" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin />
+          </a>
+          
         </div>
         <div className={socialLinksstyle}>
-          <FaGithub />
+          <a href="https://github.com/maheshkose" target="_blank" rel="noopener noreferrer">
+            <FaGithub />
+          </a>
+        </div>
+        <div className={socialLinksstyle + " flex-col gap-1 relative"} onClick={()=>{navigator.clipboard.writeText("ms2kose@gmail.com");setCopied(true);setTimeout(()=>setCopied(false),1000)}}>
+          
+            <CgMail />
+            {copied && <span className="text-sm text-gray-100 bg-gray-800 dark:text-gray-800 dark:bg-gray-50 absolute -right-10 -bottom-5 py-1 px-2 rounded-2xl">Gmail copied</span>}
+          {/* <span className="text-sm text-gray-800 dark:text-gray-100 absolute -top-5 ">ms2kose@gmail.com</span> */}
         </div>
         <div className={socialLinksstyle}>
-          <CgMail />
-        </div>
-        <div className={socialLinksstyle}>
-          <FaInstagramSquare />
+          <a href="https://www.instagram.com/ms2kose" target="_blank" rel="noopener noreferrer">
+            <FaInstagramSquare />
+          </a>
         </div>
       </div>
       
