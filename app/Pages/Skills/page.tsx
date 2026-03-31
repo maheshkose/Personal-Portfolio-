@@ -15,14 +15,14 @@ import Image from 'next/image';
         
 
 const page = () => {
-  const skillStyle = "w-64 h-32 bg-gray-900 border-gray-100 border-1 rounded-md flex items-center justify-center text-white text-2xl hover:bg-gray-790 transition-colors duration-300 hover:border-gray-300 hover:scale-110 transition-transform duration-400  cursor-pointer dark:hover:bg-gray-700 dark:border-1 dark:hover:text-white dark:hover:border-gray-300 flex-col gap-1";
+  const skillStyle = "w-full lg:w-64 h-32 bg-gray-900 border-gray-100 border-1 rounded-md flex items-center justify-center text-white text-2xl hover:bg-gray-790 transition-colors duration-300 hover:border-gray-300 hover:scale-110 transition-transform duration-400  cursor-pointer dark:hover:bg-gray-700 dark:border-1 dark:hover:text-white dark:hover:border-gray-300 flex-col gap-1";
   return (
-    <div className="w-full h-auto flex flex-col items-center justify-center gap-3  bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-50 p-10 py-30">
+    <div className="w-full h-auto flex flex-col items-center justify-center gap-3  bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-50 px-5 lg:px-20 py-30">
       <div className='flex flex-col items-center justify-center gap-5'>
         <h1 className='text-5xl text-orange-400  font-[900]'>Skills</h1>
         <div className='w-36 h-2 bg-gradient-to-r from-white via-orange-500 to-white dark:bg-gradient-to-r dark:from-gray-800 dark:via-orange-500 dark:to-gray-800 '></div>
       </div>
-      <div className='w-full grid grid-cols-4 gap-8 items-center mt-20 px-30'>
+      <div className='w-full grid grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-center mt-20 px-3'>
         <div className={skillStyle}>
           <FaJsSquare color='yellow'/>
           <span>JavaScript</span>
