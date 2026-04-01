@@ -30,11 +30,11 @@ const Footer = () => {
                             <FaGithub />
                           </a>
                         </div>
-                        <div className={socialLinksstyle + " flex-col gap-1 relative"} onClick={()=>{navigator.clipboard.writeText("ms2kose@gmail.com");setCopied(true);setTimeout(()=>setCopied(false),1000)}}>
+                        <div className={socialLinksstyle + " flex-col gap-1 relative"} onClick={()=>{navigator.clipboard.writeText("maheshkose23@gmail.com");setCopied(true);setTimeout(()=>setCopied(false),1000)}}>
                           
                             <CgMail />
                             {copied && <span className="text-sm text-gray-100 bg-gray-800 dark:text-gray-800 dark:bg-gray-50 absolute -right-10 -bottom-5 py-1 px-2 rounded-2xl">Gmail copied</span>}
-                          {/* <span className="text-sm text-gray-800 dark:text-gray-100 absolute -top-5 ">ms2kose@gmail.com</span> */}
+                          {/* <span className="text-sm text-gray-800 dark:text-gray-100 absolute -top-5 ">maheshkose23@gmail.com</span> */}
                         </div>
                         <div className={socialLinksstyle}>
                           <a href="https://www.instagram.com/ms2kose" target="_blank" rel="noopener noreferrer">
