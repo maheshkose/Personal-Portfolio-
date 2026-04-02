@@ -5,6 +5,8 @@ import { FaGithub } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
 import { FaInstagramSquare } from "react-icons/fa";
 import Link from "next/link";
+import { TooltipSides } from "@/app/components/myUi/Tooltip";
+
 const page = () => {
   const [copied, setCopied] = useState(false);
   const socialLinksstyle =
@@ -35,28 +37,35 @@ const page = () => {
         </button>
       </div>
       <div className="flex items-center justify-center gap-6 ">
-        <div className={socialLinksstyle}>
-          <a href="https://www.linkedin.com/in/maheshkose" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin />
-          </a>
-          
-        </div>
-        <div className={socialLinksstyle}>
-          <a href="https://github.com/maheshkose" target="_blank" rel="noopener noreferrer">
-            <FaGithub />
-          </a>
-        </div>
-        <div className={socialLinksstyle + " flex-col gap-1 relative"} onClick={()=>{navigator.clipboard.writeText("maheshkose23@gmail.com");setCopied(true);setTimeout(()=>setCopied(false),1000)}}>
+        <TooltipSides text="LinkedIn">
+          <div className={socialLinksstyle}>
+            <a href="https://www.linkedin.com/in/maheshkose" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin />
+            </a>
+          </div>
+        </TooltipSides>
+        <TooltipSides text="GitHub">
+          <div className={socialLinksstyle}>
+            <a href="https://github.com/maheshkose" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
+            </a>
+          </div>
+        </TooltipSides>
+        <TooltipSides text="maheshkose23@gmail.com">
+          <div className={socialLinksstyle + " flex-col gap-1 relative"} onClick={()=>{navigator.clipboard.writeText("maheshkose23@gmail.com");setCopied(true);setTimeout(()=>setCopied(false),1000)}}>
           
             <CgMail />
             {copied && <span className="text-sm text-gray-100 bg-gray-800 dark:text-gray-800 dark:bg-gray-50 absolute -right-10 -bottom-5 py-1 px-2 rounded-2xl">Gmail copied</span>}
           {/* <span className="text-sm text-gray-800 dark:text-gray-100 absolute -top-5 ">maheshkose23@gmail.com</span> */}
         </div>
-        <div className={socialLinksstyle}>
+        </TooltipSides>
+        <TooltipSides text="Instagram">
+          <div className={socialLinksstyle}>
           <a href="https://www.instagram.com/ms2kose" target="_blank" rel="noopener noreferrer">
             <FaInstagramSquare />
           </a>
         </div>
+        </TooltipSides>
       </div>
       
     </div>

@@ -4,8 +4,24 @@ import { ErrorHandler } from "@/lib/type";
 import { AwardIcon } from "lucide-react";
 import { NextRequest, NextResponse } from "next/server";
 
-export function GET(req:NextRequest){
-    
+export type feedback = {
+    name:string;
+    feedback:string;
+}
+
+export type contact = {
+    name:string;
+    email:string;
+    message:string;
+}
+export async function GET(req:NextRequest){
+    try {
+        await connectDb();
+        const feedbacks = await FeedBack.find().sort({createdAt:-1});
+        return NextResponse.json({success:true,feedbacks}, {status:200});
+    } catch (error) {
+        
+    }
 }
 export async function POST(req:NextRequest){
     await connectDb();

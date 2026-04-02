@@ -5,6 +5,7 @@ import AppState from "./context/AppState";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Toaster } from "sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,7 @@ export default function RootLayout({
         <AppState>
           
           <Navbar />
-          {children}
+           <TooltipProvider>{children}</TooltipProvider>
           <Footer/>
           <Toaster position="top-right" richColors closeButton />
         </AppState>

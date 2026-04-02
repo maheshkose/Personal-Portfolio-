@@ -28,10 +28,18 @@ const Contactform = () => {
       toast.error(res.data.message);
     }
   };
+
+  const handlekeydown = (e:any)=>{
+        const key = e.key;
+        if (key === "Enter") {
+            handlesubmit(e);
+        }
+    }
   return (
     <form
       action=""
       className="w-full lg:min-w-100 p-5 rounded-md flex gap-5 flex-col justify-around items-center"
+      onKeyDown={handlekeydown}
     >
       <input
         type="text"

@@ -1,67 +1,15 @@
 'use client'
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import React, { useState } from "react";
 import { queryObjects } from "v8";
+import projects, { project } from "@/lib/Projects";
 
 const page = () => {
-  type project = {
-    title: string;
-    imgUrl: string;
-    description: string;
-    techStack: string[];
-    liveLink: string;
-    githubLink: string;
-  };
-  const projects: project[] = [
-  {
-    title: "Gym Management",
-    imgUrl: "/gym.png",
-    description: "A full-stack web application for managing gym operations, including member registration, subscription plans, and attendance tracking.",
-    techStack: ["React", "Node", "Express", "MongoDB"],
-    liveLink: "https://gymmanagementapp-admin.onrender.com",
-    githubLink: "https://github.com/maheshkose/GymManagementApp.git",
-  },
-  {
-    title: "Quick Food Client",
-    imgUrl: "/quickfr.png",
-    description: "A food delivery web application where users can browse menus, place orders, and track their order status in real-time.",
-    techStack: ["React", "Node", "Express", "MongoDB"],
-    liveLink: "https://quick-food-2.onrender.com",
-    githubLink: "https://github.com/maheshkose/Quick-food.git",
-  },
-  {
-    title: "Quick Food Dashboard",
-    imgUrl: "/quickds.png",
-    description: "An admin dashboard for managing food delivery operations, including order management, menu updates, and customer insights.",
-    techStack: ["React", "Node", "Express", "MongoDB"],
-    liveLink: "https://quick-food-admin.onrender.com",
-    githubLink: "https://github.com/maheshkose/Quick-food.git",
-  },
-  {
-    title: "Hospital Management Dashboard",
-    imgUrl: "/hosdash.png",
-    description: "A comprehensive admin panel for managing hospital operations such as patient records, doctor profiles, and appointment scheduling.",
-    techStack: ["React", "Node", "Express", "MongoDB"],
-    liveLink: "https://hospital-managment-dashboard.onrender.com",
-    githubLink: "https://github.com/maheshkose/hospital-managment.git",
-  },
-  {
-    title: "Hospital Management Frontend",
-    imgUrl: "/hospitalfrontend.png",
-    description: "A user-friendly frontend application where patients can explore hospital services, book appointments, and communicate with staff.",
-    techStack: ["React", "Node", "Express", "MongoDB"],
-    liveLink: "https://hospital-managment-frontend.onrender.com",
-    githubLink: "https://github.com/maheshkose/hospital-managment.git",
-  },
-  {
-    title: "Pixabay Clone",
-    imgUrl: "/pixabay.png",
-    description: "A clone of the Pixabay platform built for practice, allowing users to search and explore high-quality images using an API.",
-    techStack: ["React", "Node", "Express", "MongoDB"],
-    liveLink: "https://pixabay-two-mu.vercel.app/",
-    githubLink: "https://github.com/maheshkose/pixabay.git",
-  }
-];
+
+  const router = useRouter();
+ 
 
   const [searchQuery, setsearchQuery] = useState<string>("");
   const [qsudoProjects, setqsudoProjects] = useState<project[]>([...projects]);
@@ -114,7 +62,7 @@ const page = () => {
     <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-between items-center gap-10 px-2">
       {renderProjects?.map((project,i)=>(
         <div key={i} className="flex flex-col items-start gap-4 bg-[#ccc] dark:bg-gray-800 p-8 rounded-lg">
-          <div>
+          <div onClick={()=>{router.push(`/Pages/Projects/ProjectsDetails?id=${i}`)}} className="rounded-md overflow-hidden cursor-pointer">
             <Image src={project.imgUrl} alt="" width={400} height={300} className="rounded-lg"/>
           </div>
           <div>
@@ -130,9 +78,9 @@ const page = () => {
               </div>
             )}
           </div>
-          <div className="w-full flex justify-start gap-4">
-            <button className="w-full text-2xl px-8 py-2 bg-yellow-500 rounded-md text-nowrap "><a href={project.liveLink} target="_blank" rel="noopener noreferrer">Live Demo</a></button>
-            <button className="w-full text-2xl px-8 py-2 border-2 border-yellow-500 rounded-md"><a href={project.githubLink}target="_blank" rel="noopener noreferrer">GitHub</a></button>
+          <div className="w-full flex justify-between items-center gap-4 flex-wrap">
+            <button className="text-md  px-8 py-2 bg-yellow-500 rounded-md text-nowrap "><a href={project.liveLink} target="_blank" rel="noopener noreferrer">Live Demo</a></button>
+            <button className="text-md  px-8 py-2 border-2 border-yellow-500 rounded-md"><a href={project.githubLink}target="_blank" rel="noopener noreferrer">GitHub</a></button>
           </div>
         </div>
       ))}
