@@ -62,7 +62,7 @@ const page = () => {
     <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-between items-center gap-10 px-2">
       {renderProjects?.map((project,i)=>(
         <div key={i} className="flex flex-col items-start gap-4 bg-[#ccc] dark:bg-gray-800 p-8 rounded-lg">
-          <div onClick={()=>{router.push(`/Pages/Projects/ProjectsDetails?id=${i}`)}} className="rounded-md overflow-hidden cursor-pointer">
+          <div onClick={()=>{router.push(`/Pages/Projects/${i}`)}} className="rounded-md overflow-hidden cursor-pointer">
             <Image src={project.imgUrl} alt="" width={400} height={300} className="rounded-lg"/>
           </div>
           <div>
