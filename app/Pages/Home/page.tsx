@@ -14,7 +14,7 @@ const page = () => {
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center gap-3 font-sans bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-50 px-5 lg:px-20 py-30">
       <h3 className="text-orange-400 text-2xl font-bold ">
-        MERN Stack Developer
+        MERN Stack Developer updated
       </h3>
       <h1 className="text-gray-800 dark:text-gray-50 text-5xl lg:text-7xl font-bold my-6 text-nowrap">
         Mahesh Kose

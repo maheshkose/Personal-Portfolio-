@@ -43,7 +43,7 @@ const Feedbackform = () => {
           <button type='submit' className='w-[70%] bg-yellow-600 py-2 rounded-md text-lg' onClick={handlesubmit}>Send Feedback</button>
 
           {/* <div onClick={()=>toast("toast has been created")}>toast</div> */}
-        </form>
+    </form>
   )
 }
 

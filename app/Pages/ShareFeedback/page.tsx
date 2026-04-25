@@ -1,10 +1,11 @@
 import React from 'react'
-import { IoStarSharp } from "react-icons/io5";
+
 import Feedbackform from '@/app/components/feedbackform';
 import Contactform from '@/app/components/contactForm';
+import Rating from '@/app/components/myUi/rating';
 
 const page = () => {
-    const starstyle = 'm-10 text-gray-600 hover:text-amber-300 hover:-rotate-20 hover:scale-125 transition ease-in';
+    
     
   return (
     <div className='w-full py-20 px-10 lg:px-20 bg-[fff] dark:bg-[#111] flex flex-col justify-between items-center'>
@@ -26,13 +27,7 @@ const page = () => {
           <h1 className='text-3xl text-yellow-500 font-extrabold pt-10'>Before you go...</h1>
           <p className='text-lg dark:text-gray-400 text-wrap '>I’d like to hear your valuable feedback on this portfolio experience.</p>
         </div>
-        <div className='w-full flex justify-around'>
-          <IoStarSharp size={40} className={starstyle} />
-          <IoStarSharp size={40} className={starstyle} />
-          <IoStarSharp size={40} className={starstyle} />
-          <IoStarSharp size={40} className={starstyle} />
-          <IoStarSharp size={40} className={starstyle} />
-        </div>
+        <Rating/>
         <Feedbackform />
       </div>
     </div>
